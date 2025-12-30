@@ -130,6 +130,376 @@
 		
 		
 		
+		<style>
+        :root {
+            --cta-bg: #FBFBFB;
+            --cta-heading-color: #828282;
+            --cta-link-color: #4A98e5;
+            --cta-link-hover-color: #5CA3E8;
+
+            --footer-bg: #4A98E5;
+            --footer-text: #ffffff;
+            --footer-link-hover: #ffffff;
+        }
+
+        /* Basic body styles */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+        
+        main {
+            flex-grow: 1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        /* FOOTER STYLES START HERE */
+        
+        .footer-agency {
+            text-align: center;
+        }
+
+        /* CTA Section */
+        .footer-agency__cta {
+            background-color: var(--cta-bg);
+            padding: 4rem 1.5rem;
+        }
+
+        .footer-agency__cta-heading {
+            font-size: 2.5rem;
+            font-weight: normal;
+            color: var(--cta-heading-color);
+            margin: 0 0 1rem 0;
+        }
+
+        .footer-agency__cta-link {
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: var(--cta-link-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-agency__cta-link:hover {
+            color: var(--cta-link-hover-color);
+            text-decoration: underline;
+        }
+
+        /* Bottom Bar Section */
+        .footer-agency__bottom {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 2rem 0;
+        }
+
+        .footer-agency__bottom-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-agency__nav ul,
+        .footer-agency__social ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-agency__nav a,
+        .footer-agency__social a {
+            color: var(--footer-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-agency__nav a:hover,
+        .footer-agency__social a:hover {
+            color: var(--footer-link-hover);
+        }
+
+        .footer-agency__social svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .footer-agency__copyright {
+            font-size: 0.875rem;
+        }
+        
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            .footer-agency__cta-heading { font-size: 3rem; }
+            .footer-agency__cta-link { font-size: 1.75rem; }
+            .footer-agency__bottom-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <footer class="footer-agency" role="contentinfo">
+        <section class="footer-agency__cta" aria-labelledby="cta-heading">
+            <div class="container">
+                <h2 id="cta-heading" class="footer-agency__cta-heading">Let's Work Together</h2>
+                <a href="mailto:hi@pipchell.com" class="footer-agency__cta-link">hi@pipchell.com</a>
+            </div>
+        </section>
+
+        <section class="footer-agency__bottom">
+            <div class="container footer-agency__bottom-container">
+                <nav class="footer-agency__nav" aria-label="Footer Navigation">
+                    <ul>
+                        <li><a href="#header" class = "button icon solid fa-chevron-up scrolly">Home</a></li>
+                        <li><a href="#one" class = "button icon solid fa-chevron-up scrolly">About</a></li>
+                        <li><a href="#two" class = "button icon solid fa-chevron-up scrolly">Interests</a></li>
+                    </ul>
+                </nav>
+                <p class="footer-agency__copyright">&copy; 2025 Pip Chell</p>
+            </div>
+        </section>
+    </footer>
+
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Pip Chell</title>
+		<link rel="icon" type="image/png" href="logopppp.png">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="content" style= "max-width: 750px;">
+					<h1><a href="#">Pip Chell</a></h1>
+					<p>I like graphic design, tech and fire stuff. This is my website in case you didn't realise. Did I mention I like computers? :)</p>
+					<ul class="actions">
+						<li><a href="#one" class="button icon solid fa-chevron-down scrolly">About Me</a></li>
+					</ul>
+				</div>
+				<div class="image phone"><div class="inner"><img src="images/screen4.jpg" alt="" /></div></div>
+			</header>
+
+		<!-- One -->
+			<section id="one" class="wrapper style2 special">
+				<header class="major">
+					<h2>Experience with graphic design, and computer shenanigans.</h2>
+				</header>
+				<ul class="icons major">
+					<li><span class="icon solid fa-computer"><span class="label">Computer Stuff</span></span></li>
+					<li><span class="icon solid fa-paintbrush"><span class="label">Graphics Stuff</span></span></li>
+				</ul>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper">
+				<div class="inner alt">
+					<section class="spotlight">
+						<div class="image"><img src="images/3.png" alt="" /></div>
+						<div class="content">
+							<h3>Coding Stuff</h3>
+							<p>I have experience with multiple programming languages including Java, HTML, CSS and Python. I Built this website with HTML, Javascript and CSS.</p>
+							<p>Coding stuff = cool</p>
+						</div>
+					</section>
+					<section class="spotlight">
+						<div class="image"><img src="images/4.png" alt="" /></div>
+						<div class="content">
+							<h3>Graphic Design Stuff</h3>
+							<p>I have worked on many graphic design projects, for instance, a logo and poster for Eco Washing Laundrette whilst working with yell.com.</p>
+							<p>Graphic design stuff = cool</p>
+						</div>
+					</section>
+					<section class="spotlight">
+						<div class="image"><img src="images/5.png" alt="" /></div>
+						<div class="content">
+							<h3>Computer Stuff</h3>
+							<p>I spend my time tinkering with computers and upgrading them, my oldest computer is from 2008! :)</p>
+							<p>Tech stuff = cool</p>
+						</div>
+						</section>
+					<section class="spotlight">
+						<div class="image"><img src="images/6.png" alt="" /></div>
+						<div class="content">
+							<h3>Fire Stuff</h3>
+							<p>I like fire safety / prevention. I own industrial grade fire extinguishers because why not?</p>
+							<p>Fire stuff = cool</p>
+							</div>
+					</section>
+					<section class="special">
+						<h1>I Like...</h1>
+						<h1>‎ </h1>
+						<ul class="icons labeled">
+							<li><span class="icon solid fa-camera-retro"><span class="label">Camera Stuff</span></span></li>
+							<li><span class="icon solid fa-video"><span class="label">Editing Stuff</span></span></li>
+							<li><span class="icon solid fa-cloud"><span class="label">File Stuff</span></span></li>
+							<li><span class="icon solid fa-code"><span class="label">Coding Stuff</span></span></li>
+							<li><span class="icon solid fa-desktop"><span class="label">Tech Stuff</span></span></li>
+							<li><span class="icon solid fa-fire"><span class="label">Fire Stuff</span></span></li>							
+						</ul>
+					</section>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper style2 special">
+				<header class="major">
+					<h2>Projects</h2>
+					<p>All of my project files are avalible on my github page. You can see them here.</p>
+				</header>
+				<ul class="actions special">
+					<li><a href="https://github.com/pipchell/" target=”_blank” class="button primary">Github</a></li>
+				</ul>
+			</section>
+
+			<section id="three" class="wrapper style2 special">
+				<header class="major">
+					<h2>Contact</h2>
+					<p>You can reach me via email.</p>
+				</header>
+				<ul class="actions special">
+					<li><a href="mailto:pip@pipchell.com" target=”_blank” class="button primary">Personal</a></li>
+					<li><a href="mailto:hi@pipchell.com" target=”_blank” class="button primary">Site</a></li>
+	                <li><a href="mailto:support@pipchell.com" target=”_blank” class="button primary">Support</a></li>
+				</ul>
+			</section>
+
+		<!-- Footer -->
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		<!-- Footer -->
 <footer class="footer-agency" role="contentinfo">
     <section class="footer-agency__cta" aria-labelledby="cta-heading">
@@ -245,6 +615,7 @@
 	</body>
 
 </html>
+
 
 
 
