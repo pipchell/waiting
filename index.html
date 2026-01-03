@@ -121,7 +121,13 @@
 
 
 
- <style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Slideshow</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -131,7 +137,7 @@
 
         body {
             background: #fbfbfb;
-            padding: 2em 0;
+            padding: 4em 0 2em 0;
         }
 
         .slideshow-wrapper {
@@ -178,6 +184,12 @@
             margin: 0 auto;
         }
 
+        @media (max-width: 736px) {
+            .slideshow-container {
+                max-width: 90vw;
+            }
+        }
+
         .slide {
             display: none;
             position: relative;
@@ -199,6 +211,12 @@
             object-fit: contain;
             border-radius: 6px 6px 0 0;
             background: #ffffff;
+        }
+
+        @media (max-width: 736px) {
+            .slide img {
+                height: 90vw;
+            }
         }
 
         .controls {
@@ -373,8 +391,8 @@
         slideshows[1].autoPlayInterval = setInterval(() => autoPlay(1), 4000);
         slideshows[2].autoPlayInterval = setInterval(() => autoPlay(2), 4000);
     </script>
-
-
+</body>
+</html>
 
 
 
@@ -701,6 +719,7 @@
 	</body>
 
 </html>
+
 
 
 
