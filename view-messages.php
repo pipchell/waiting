@@ -1,7 +1,6 @@
 <?php
-// Simple admin page to view contact messages
-// IMPORTANT: Change this password!
-$admin_password = 'your_secure_password_here'; // CHANGE THIS!
+
+$admin_password = 'ENCODED_BY_PIP'; 
 
 session_start();
 
