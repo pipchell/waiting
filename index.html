@@ -397,7 +397,7 @@
 						<p>Feel free to reach out! I'd love to hear from you.</p>
 					</header>
 					
-					<form id="contactForm" action="contact-handler.php" method="POST">
+					<form id="contactForm" action="contact-handler-file.php" method="POST">
 						<div class="row gtr-uniform">
 							<div class="col-6 col-12-xsmall">
 								<label for="name">Name</label>
@@ -672,7 +672,7 @@
 		button.textContent = 'Sending...';
 		button.disabled = true;
 		
-		fetch('contact-handler.php', {
+		fetch('contact-handler-file.php', {
 			method: 'POST',
 			body: formData
 		})
