@@ -1,9 +1,8 @@
 <?php
-// Enable error reporting for debugging
+// Disable error display, enable logging
 error_reporting(E_ALL);
-ini_set('display_errors', 0); // Don't display errors to user
+ini_set('display_errors', 0);
 ini_set('log_errors', 1);
-ini_set('error_log', 'contact-form-errors.log');
 
 // Set headers for JSON response
 header('Content-Type: application/json');
@@ -16,9 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Get form data
-$name = isset($_POST['name']) ? trim($_POST['name']) : '';
+$name = isset($_POST['name']) ? strip_tags(trim($_POST['name'])) : '';
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
-$message = isset($_POST['message']) ? trim($_POST['message']) : '';
+$message = isset($_POST['message']) ? strip_tags(trim($_POST['message'])) : '';
 
 // Validate inputs
 $errors = [];
@@ -46,40 +45,38 @@ if (!empty($errors)) {
 
 // Configure email settings
 $to = 'support@pipchell.com';
-$subject = 'New Contact Form Submission from ' . $name;
+$subject = 'Contact Form: ' . substr($name, 0, 50);
 
-// Create email body
-$email_body = "You have received a new message from your website contact form.\n\n";
+// Create email body (plain text)
+$email_body = "New contact form submission\n\n";
 $email_body .= "Name: $name\n";
-$email_body .= "Email: $email\n\n";
-$email_body .= "Message:\n$message\n";
+$email_body .= "Email: $email\n";
+$email_body .= "Date: " . date('Y-m-d H:i:s') . "\n\n";
+$email_body .= "Message:\n";
+$email_body .= wordwrap($message, 70) . "\n";
 
-// Email headers
-$headers = "From: support@pipchell.com\r\n";
-$headers .= "Reply-To: $email\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
+// Email headers - try different From addresses based on hosting
+// Many shared hosts require From to be a real email on the domain
+$headers = array();
+$headers[] = "MIME-Version: 1.0";
+$headers[] = "Content-type: text/plain; charset=utf-8";
+$headers[] = "From: Contact Form <support@pipchell.com>";
+$headers[] = "Reply-To: $name <$email>";
+$headers[] = "X-Mailer: PHP/" . phpversion();
 
-// Log the attempt
-error_log("Attempting to send email to: $to from: $email");
-
-// Attempt to send email
-$mail_sent = @mail($to, $subject, $email_body, $headers);
+// Attempt to send email with error suppression
+$mail_sent = @mail($to, $subject, $email_body, implode("\r\n", $headers));
 
 if ($mail_sent) {
-    error_log("Email sent successfully to: $to");
     echo json_encode([
         'success' => true, 
         'message' => 'Thank you for your message! We will get back to you soon.'
     ]);
 } else {
-    // Get the last error
-    $error = error_get_last();
-    error_log("Failed to send email. Error: " . print_r($error, true));
-    
     http_response_code(500);
     echo json_encode([
         'success' => false, 
-        'message' => 'Sorry, there was an error sending your message. Please email us directly at support@pipchell.com'
+        'message' => 'Unable to send message. Please email support@pipchell.com directly.'
     ]);
 }
 ?>
