@@ -1,7 +1,9 @@
 <?php
-// Enable error reporting for debugging (remove in production)
+// Enable error reporting for debugging
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0); // Don't display errors to user
+ini_set('log_errors', 1);
+ini_set('error_log', 'contact-form-errors.log');
 
 // Set headers for JSON response
 header('Content-Type: application/json');
@@ -57,19 +59,27 @@ $headers = "From: support@pipchell.com\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
+// Log the attempt
+error_log("Attempting to send email to: $to from: $email");
+
 // Attempt to send email
-if (mail($to, $subject, $email_body, $headers)) {
-    // Success
+$mail_sent = @mail($to, $subject, $email_body, $headers);
+
+if ($mail_sent) {
+    error_log("Email sent successfully to: $to");
     echo json_encode([
         'success' => true, 
         'message' => 'Thank you for your message! We will get back to you soon.'
     ]);
 } else {
-    // Failed to send
+    // Get the last error
+    $error = error_get_last();
+    error_log("Failed to send email. Error: " . print_r($error, true));
+    
     http_response_code(500);
     echo json_encode([
         'success' => false, 
-        'message' => 'Sorry, there was an error sending your message. Please try again later.'
+        'message' => 'Sorry, there was an error sending your message. Please email us directly at support@pipchell.com'
     ]);
 }
 ?>
